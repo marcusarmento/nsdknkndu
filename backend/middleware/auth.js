@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+// Middleware para validar tokens JWT e proteger rotas
+
 module.exports = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   if (!authHeader) {
