@@ -134,7 +134,7 @@ sdi-sistema/
 └── README.md             # Este arquivo
 ```
 
-Os estilos CSS da aplicação agora residem em `frontend/src/styles/`.
+Todos os arquivos de estilo, incluindo `App.css` e `Layout.css`, agora residem em `frontend/src/styles/` e são importados via `frontend/src/main.jsx`.
 
 ## 🔧 APIs Disponíveis
 
