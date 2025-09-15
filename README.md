@@ -113,11 +113,16 @@ sdi-sistema/
 │   ├── database.sql       # Script de criação do banco
 │   ├── package.json       # Dependências do Node.js
 │   └── node_modules/      # Dependências instaladas
-├── *.html                 # Páginas do frontend
-├── *.js                   # Scripts JavaScript do frontend
-├── *.css                  # Estilos CSS
+├── frontend/
+│   └── src/
+│       ├── styles/        # Estilos CSS da aplicação
+│       └── ...            # Demais arquivos React
+├── *.html                 # Páginas do frontend legado
+├── *.js                   # Scripts JavaScript do frontend legado
 └── README.md             # Este arquivo
 ```
+
+Os estilos CSS da aplicação agora residem em `frontend/src/styles/`.
 
 ## 🔧 APIs Disponíveis
 
