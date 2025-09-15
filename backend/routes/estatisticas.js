@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const logger = require('../logger');
 
 // GET /api/estatisticas/processos-por-tipo - Estatísticas de processos por tipo
 router.get('/processos-por-tipo', async (req, res) => {
@@ -15,7 +16,7 @@ router.get('/processos-por-tipo', async (req, res) => {
         `);
         res.json(rows);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
     }
 });
@@ -34,9 +35,10 @@ router.get('/tempo-medio', async (req, res) => {
         `);
         res.json(rows);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
     }
 });
 
 module.exports = router;
+

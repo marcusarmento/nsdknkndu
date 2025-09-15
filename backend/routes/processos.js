@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const logger = require('../logger');
 
 // GET /api/processos - Buscar todos os processos
 router.get('/', async (req, res) => {
@@ -9,7 +10,7 @@ router.get('/', async (req, res) => {
         const { rows } = await db.query('SELECT * FROM processos ORDER BY criado_em DESC');
         res.json(rows);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
     }
 });
@@ -26,7 +27,7 @@ router.get('/:id', async (req, res) => {
         
         res.json(rows[0]);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
     }
 });
@@ -65,7 +66,7 @@ router.post('/', async (req, res) => {
         const { rows } = await db.query(query, values);
         res.status(201).json(rows[0]);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro ao criar processo' });
     }
 });
@@ -106,7 +107,7 @@ router.put('/:id', async (req, res) => {
         
         res.json(rows[0]);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro ao atualizar processo' });
     }
 });
@@ -123,9 +124,10 @@ router.delete('/:id', async (req, res) => {
         
         res.json({ message: 'Processo excluído com sucesso' });
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro ao excluir processo' });
     }
 });
 
 module.exports = router;
+
