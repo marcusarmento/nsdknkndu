@@ -9,6 +9,31 @@
 
 .editor-card .card-body {
     flex-grow: 1;
-    display: flex; /* Garante que o container do editor também cresça */
+    display: flex;
+    flex-direction: column;
     padding: 0; /* O editor já tem suas próprias margens */
 }
+
+.toolbar {
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem;
+}
+
+.toolbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.toolbar button.active {
+    color: #007bff;
+}
+
+#editor-de-texto {
+    flex-grow: 1;
+    padding: 1rem;
+    outline: none;
+}
+

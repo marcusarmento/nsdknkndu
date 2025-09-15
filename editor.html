@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDI - Editor de Documento</title>
-    
+
     <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="editor.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="editor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-
     <div class="dashboard-container">
-        
-        <aside class="sidebar">
-            </aside>
+        <aside class="sidebar"></aside>
 
         <main class="main-content">
-            
             <header class="main-header">
                 <div class="page-title">
                     <h2>Editor de Documento</h2>
@@ -32,15 +28,23 @@
 
             <section class="module-card editor-card">
                 <div class="card-body">
-                    <textarea id="editor-de-texto">
+                    <div class="toolbar" aria-label="Ferramentas de formatação">
+                        <button type="button" data-command="bold"><i class="fa-solid fa-bold"></i></button>
+                        <button type="button" data-command="italic"><i class="fa-solid fa-italic"></i></button>
+                        <button type="button" data-command="underline"><i class="fa-solid fa-underline"></i></button>
+                        <button type="button" data-command="insertUnorderedList"><i class="fa-solid fa-list-ul"></i></button>
+                        <button type="button" data-command="insertOrderedList"><i class="fa-solid fa-list-ol"></i></button>
+                    </div>
+                    <div id="editor-de-texto" contenteditable="true">
                         <p>Prezado(a) Senhor(a),</p>
                         <p>Este é um exemplo de conteúdo inicial para o documento que está sendo criado no editor.</p>
                         <p>Atenciosamente,</p>
-                    </textarea>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <script src="editor.js"></script> </body>
+    <script src="editor.js"></script>
+</body>
 </html>
