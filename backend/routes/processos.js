@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
@@ -6,9 +5,6 @@ const logger = require('../logger');
 const { body, validationResult } = require('express-validator');
 
 // GET /api/processos - Buscar todos os processos com paginação
-router.get('/', async (req, res) => {
-
-// GET /api/processos - Buscar todos os processos
 router.get('/', async (req, res, next) => {
     try {
         const limit = parseInt(req.query.limit, 10) || 10;
@@ -60,7 +56,7 @@ router.post(
         body('tipo').notEmpty(),
         body('protocolo_tipo').notEmpty()
     ],
-    async (req, res) => {
+    async (req, res, next) => {
         try {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
@@ -98,45 +94,10 @@ router.post(
             const { rows } = await db.query(query, values);
             res.status(201).json(rows[0]);
         } catch (err) {
-            console.error(err.message);
+            logger.error(err.message);
             res.status(500).json({ error: 'Erro ao criar processo' });
+            next(err);
         }
-router.post('/', async (req, res, next) => {
-    try {
-        const {
-            numero_processo,
-            tipo_processo,
-            especificacao,
-            interessado,
-            observacoes,
-            nivel_acesso,
-            tipo,
-            protocolo_tipo,
-            protocolo_numero_manual,
-            protocolo_data
-        } = req.body;
-
-        const query = `
-            INSERT INTO processos (
-                numero_processo, tipo_processo, especificacao, interessado,
-                observacoes, nivel_acesso, tipo, protocolo_tipo,
-                protocolo_numero_manual, protocolo_data, criado_em
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
-            RETURNING *
-        `;
-
-        const values = [
-            numero_processo, tipo_processo, especificacao, interessado,
-            observacoes, nivel_acesso, tipo, protocolo_tipo,
-            protocolo_numero_manual, protocolo_data
-        ];
-
-        const { rows } = await db.query(query, values);
-        res.status(201).json(rows[0]);
-    } catch (err) {
-        logger.error(err.message);
-        res.status(500).json({ error: 'Erro ao criar processo' });
-        next(err);
     }
 );
 
@@ -151,7 +112,7 @@ router.put(
         body('nivel_acesso').notEmpty(),
         body('tipo').notEmpty()
     ],
-    async (req, res) => {
+    async (req, res, next) => {
         try {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
@@ -191,47 +152,10 @@ router.put(
 
             res.json(rows[0]);
         } catch (err) {
-            console.error(err.message);
+            logger.error(err.message);
             res.status(500).json({ error: 'Erro ao atualizar processo' });
+            next(err);
         }
-router.put('/:id', async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const {
-            numero_processo,
-            tipo_processo,
-            especificacao,
-            interessado,
-            observacoes,
-            nivel_acesso,
-            tipo
-        } = req.body;
-
-        const query = `
-            UPDATE processos SET
-                numero_processo = $1, tipo_processo = $2, especificacao = $3,
-                interessado = $4, observacoes = $5, nivel_acesso = $6, tipo = $7,
-                atualizado_em = NOW()
-            WHERE id = $8
-            RETURNING *
-        `;
-
-        const values = [
-            numero_processo, tipo_processo, especificacao, interessado,
-            observacoes, nivel_acesso, tipo, id
-        ];
-
-        const { rows } = await db.query(query, values);
-
-        if (rows.length === 0) {
-            return res.status(404).json({ error: 'Processo não encontrado' });
-        }
-
-        res.json(rows[0]);
-    } catch (err) {
-        logger.error(err.message);
-        res.status(500).json({ error: 'Erro ao atualizar processo' });
-        next(err);
     }
 );
 
