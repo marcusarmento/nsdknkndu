@@ -37,15 +37,6 @@ app.get('/', (req, res) => {
     res.send('API do SDI está no ar!');
 });
 
-// 7. Iniciar o servidor
-if (require.main === module) {
-    app.listen(PORT, () => {
-        console.log(`Servidor rodando com sucesso na porta ${PORT}`);
-    });
-}
-
-module.exports = app;
-
 // 7. Middleware para rota não encontrada
 app.use((req, res) => res.status(404).json({ error: 'Rota não encontrada' }));
 
@@ -56,9 +47,10 @@ app.use((err, req, res, next) => {
 });
 
 // 9. Iniciar o servidor
-app.listen(PORT, () => {
-    logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
+    });
+}
 
-    console.log(`Servidor rodando com sucesso na porta ${PORT}`);
-});
+module.exports = app;
