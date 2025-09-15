@@ -171,6 +171,22 @@ npm run db:create
 npm run db:setup
 ```
 
+## 🧪 Testes
+
+### Backend
+
+```bash
+cd backend
+npm test
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm test
+```
+
 ## 🐛 Solução de Problemas
 
 ### Erro de conexão com PostgreSQL
