@@ -11,6 +11,8 @@ const documentosRouter = require('./routes/documentos');
 const blocosRouter = require('./routes/blocos');
 const estatisticasRouter = require('./routes/estatisticas');
 const pesquisaRouter = require('./routes/pesquisa');
+const authRouter = require('./routes/auth');
+const authMiddleware = require('./middleware/auth');
 
 // 3. Inicializar o aplicativo Express
 const app = express();
@@ -22,17 +24,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 5. Usar as rotas da API
-app.use('/api/processos', processosRouter);
-app.use('/api/contatos', contatosRouter);
-app.use('/api/documentos', documentosRouter);
-app.use('/api/blocos', blocosRouter);
-app.use('/api/estatisticas', estatisticasRouter);
-app.use('/api/pesquisa', pesquisaRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/processos', authMiddleware, processosRouter);
+app.use('/api/contatos', authMiddleware, contatosRouter);
+app.use('/api/documentos', authMiddleware, documentosRouter);
+app.use('/api/blocos', authMiddleware, blocosRouter);
+app.use('/api/estatisticas', authMiddleware, estatisticasRouter);
+app.use('/api/pesquisa', authMiddleware, pesquisaRouter);
 
 // 6. Rota raiz para teste
 app.get('/', (req, res) => {
     res.send('API do SDI está no ar!');
 });
+
+// 7. Iniciar o servidor
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando com sucesso na porta ${PORT}`);
+    });
+}
+
+module.exports = app;
 
 // 7. Middleware para rota não encontrada
 app.use((req, res) => res.status(404).json({ error: 'Rota não encontrada' }));
