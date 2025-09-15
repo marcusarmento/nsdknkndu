@@ -13,3 +13,6 @@ yarn-error.log*
 
 # Environment variables
 .env
+
+# Project-specific
+backend/node_modules/

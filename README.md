@@ -2,6 +2,8 @@
 
 Sistema web para gestão de processos e documentos internos, desenvolvido com Node.js, Express, PostgreSQL e frontend vanilla JavaScript.
 
+Após clonar o repositório, execute `npm install` para instalar as dependências.
+
 ## 🚀 Funcionalidades
 
 - **Gestão de Processos**: Criação, visualização, edição e exclusão de processos
