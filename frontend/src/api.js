@@ -47,7 +47,10 @@ async function request(endpoint, options = {}) {
 
 export const api = {
     processos: {
-        getAll: () => request('/processos'),
+        getAll: (params = {}) => {
+            const query = new URLSearchParams(params).toString();
+            return request(`/processos${query ? `?${query}` : ''}`);
+        },
         getById: (id) => request(`/processos/${id}`),
         create: (data) => request('/processos', { method: 'POST', body: JSON.stringify(data) }),
         update: (id, data) => request(`/processos/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
@@ -58,7 +61,10 @@ export const api = {
         },
     },
     contatos: {
-        getAll: () => request('/contatos'),
+        getAll: (params = {}) => {
+            const query = new URLSearchParams(params).toString();
+            return request(`/contatos${query ? `?${query}` : ''}`);
+        },
         getById: (id) => request(`/contatos/${id}`),
         create: (data) => request('/contatos', { method: 'POST', body: JSON.stringify(data) }),
         update: (id, data) => request(`/contatos/${id}`, { method: 'PUT', body: JSON.stringify(data) }),

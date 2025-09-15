@@ -3,11 +3,21 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// GET /api/contatos - Buscar todos os contatos
+// GET /api/contatos - Buscar todos os contatos com paginação
 router.get('/', async (req, res) => {
     try {
-        const { rows } = await db.query('SELECT * FROM contatos ORDER BY nome ASC');
-        res.json(rows);
+        const limit = parseInt(req.query.limit, 10) || 10;
+        const offset = parseInt(req.query.offset, 10) || 0;
+
+        const totalResult = await db.query('SELECT COUNT(*) FROM contatos');
+        const total = parseInt(totalResult.rows[0].count, 10);
+
+        const { rows } = await db.query(
+            'SELECT * FROM contatos ORDER BY nome ASC LIMIT $1 OFFSET $2',
+            [limit, offset]
+        );
+
+        res.json({ data: rows, total, limit, offset });
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
