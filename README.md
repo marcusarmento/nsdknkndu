@@ -65,7 +65,11 @@ GRANT ALL PRIVILEGES ON DATABASE sdi_db TO postgres;
 ```bash
 cd backend
 npm install
+cp .env.example .env
+# Preencha o arquivo .env com os valores reais
 ```
+
+Em seguida, edite o arquivo `.env` preenchendo as credenciais e configurações do seu ambiente.
 
 ### 5. Execute o script de criação do banco
 
