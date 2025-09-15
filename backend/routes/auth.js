@@ -9,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'default_secret';
 const TOKEN_EXPIRATION = '1h';
 
 // Registro de novo usuário
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res, next) => {
   const { cpf, nome, email, senha } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(senha, 10);
@@ -20,13 +20,14 @@ router.post('/register', async (req, res) => {
     const token = jwt.sign({ id: user.id, cpf: user.cpf }, JWT_SECRET, { expiresIn: TOKEN_EXPIRATION });
     res.status(201).json({ user, token });
   } catch (err) {
+    next(err);
     logger.error(err);
     res.status(500).json({ error: 'Erro ao registrar usuário' });
   }
 });
 
 // Login de usuário existente
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res, next) => {
   const { email, senha } = req.body;
   try {
     const { rows } = await db.query('SELECT * FROM usuarios WHERE email = $1', [email]);
@@ -41,6 +42,7 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({ id: user.id, cpf: user.cpf }, JWT_SECRET, { expiresIn: TOKEN_EXPIRATION });
     res.json({ user: { id: user.id, cpf: user.cpf, nome: user.nome, email: user.email }, token });
   } catch (err) {
+    next(err);
     logger.error(err);
     res.status(500).json({ error: 'Erro ao fazer login' });
   }

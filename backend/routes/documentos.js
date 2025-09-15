@@ -22,7 +22,6 @@ router.get('/', async (req, res, next) => {
         res.json(rows);
     } catch (err) {
         logger.error(err.message);
-        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });
@@ -40,7 +39,6 @@ router.get('/:id', async (req, res, next) => {
         res.json(rows[0]);
     } catch (err) {
         logger.error(err.message);
-        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });
@@ -74,7 +72,6 @@ router.post('/', async (req, res, next) => {
         res.status(201).json(rows[0]);
     } catch (err) {
         logger.error(err.message);
-        res.status(500).json({ error: 'Erro ao criar documento' });
         next(err);
     }
 });
@@ -112,7 +109,6 @@ router.put('/:id', async (req, res, next) => {
         res.json(rows[0]);
     } catch (err) {
         logger.error(err.message);
-        res.status(500).json({ error: 'Erro ao atualizar documento' });
         next(err);
     }
 });
@@ -130,7 +126,6 @@ router.delete('/:id', async (req, res, next) => {
         res.json({ message: 'Documento excluído com sucesso' });
     } catch (err) {
         logger.error(err.message);
-        res.status(500).json({ error: 'Erro ao excluir documento' });
         next(err);
     }
 });

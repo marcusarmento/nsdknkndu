@@ -43,7 +43,6 @@ router.get('/', async (req, res, next) => {
         res.json(rows);
     } catch (err) {
         logger.error(err.message);
-        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });

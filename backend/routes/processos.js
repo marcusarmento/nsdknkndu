@@ -133,6 +133,7 @@ router.post(
           numero_processo, tipo_processo, especificacao, interessado,
           observacoes, nivel_acesso, tipo, protocolo_tipo,
           protocolo_numero_manual, protocolo_data, criado_em
+        ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,NOW())
         ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
         RETURNING *
       `;
@@ -237,6 +238,10 @@ router.put(
 
       const query = `
         UPDATE processos SET
+          numero_processo=$1, tipo_processo=$2, especificacao=$3,
+          interessado=$4, observacoes=$5, nivel_acesso=$6, tipo=$7,
+          atualizado_em=NOW()
+        WHERE id=$8
           numero_processo = $1, tipo_processo = $2, especificacao = $3,
           interessado = $4, observacoes = $5, nivel_acesso = $6, tipo = $7,
           atualizado_em = NOW()

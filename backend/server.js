@@ -56,6 +56,10 @@ if (require.main === module) {
   app.listen(PORT, () => {
     logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
   });
+}
+
+module.exports = app;
+
     app.listen(PORT, () => {
         logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
     });
