@@ -51,3 +51,18 @@ Exemplo de configuração por ambiente:
   ```
 
 No código, acesse-as com `import.meta.env.VITE_API_URL` e use para definir a URL base das requisições (ex.: em `src/api.js`).
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Configuração da API
+
+Defina o endereço base da API através da variável de ambiente `VITE_API_BASE_URL` no arquivo `.env`.
+
+```bash
+# Ambiente de desenvolvimento
+VITE_API_BASE_URL=/api
+
+# Ambiente de produção
+VITE_API_BASE_URL=https://seu-dominio.com/api
+```
+
+Caso a variável não seja definida, o valor padrão `/api` será utilizado.
