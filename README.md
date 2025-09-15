@@ -104,6 +104,16 @@ O servidor estará rodando em `http://localhost:3000`
 
 Abra o arquivo `dashboard.html` em seu navegador ou configure um servidor web local para servir os arquivos HTML.
 
+## Variáveis de ambiente do frontend
+
+O frontend React usa Vite, que expõe apenas variáveis prefixadas com `VITE_` ao código do navegador. Defina-as no arquivo `frontend/.env`.
+
+```env
+VITE_API_BASE_URL=/api
+```
+
+No código, acesse com `import.meta.env.VITE_API_BASE_URL`.
+
 ## 📁 Estrutura do Projeto
 
 ```

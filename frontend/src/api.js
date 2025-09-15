@@ -1,6 +1,9 @@
-
-// A URL base da nossa API backend pode ser configurada via variável de ambiente
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+/**
+ * Base URL for API requests.
+ * Configurable via the VITE_API_BASE_URL environment variable.
+ * Defaults to '/api'.
+ */
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 /**
  * Função genérica para fazer requisições à API.
