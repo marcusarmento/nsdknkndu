@@ -38,6 +38,7 @@ app.get('/', (req, res) => {
 });
 
 // Middleware para rota não encontrada
+// 7. Middleware para rota não encontrada
 app.use((req, res) => res.status(404).json({ error: 'Rota não encontrada' }));
 
 // Middleware de tratamento de erros
@@ -46,10 +47,18 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Erro interno' });
 });
 
+  logger.error(err);
+  res.status(500).json({ error: 'Erro interno' });
+});
+
+// 9. Iniciar o servidor
 if (require.main === module) {
   app.listen(PORT, () => {
     logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
   });
+    app.listen(PORT, () => {
+        logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
+    });
 }
 
 module.exports = app;

@@ -1,14 +1,25 @@
 const { createLogger, format, transports } = require('winston');
 
+const logFormat = format.printf(({ timestamp, level, message }) => {
+  return `${timestamp} [${level}] ${message}`;
+});
+
 const logger = createLogger({
-  level: 'info',
+  level: process.env.LOG_LEVEL || 'info',
   format: format.combine(
     format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-    format.printf(({ timestamp, level, message }) => `${timestamp} [${level}] ${message}`)
+    logFormat
   ),
   transports: [
-    new transports.Console(),
-    new transports.File({ filename: 'app.log' })
+    new transports.Console({
+      format: format.combine(
+        format.colorize(),
+        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        logFormat
+      )
+    }),
+    new transports.File({ filename: 'app.log', level: 'info' }),
+    new transports.File({ filename: 'error.log', level: 'error' })
   ]
 });
 
