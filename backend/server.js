@@ -37,12 +37,17 @@ app.get('/', (req, res) => {
   res.send('API do SDI está no ar!');
 });
 
+// Middleware para rota não encontrada
 // 7. Middleware para rota não encontrada
 app.use((req, res) => res.status(404).json({ error: 'Rota não encontrada' }));
 
-// 8. Middleware de tratamento de erros
+// Middleware de tratamento de erros
 app.use((err, req, res, next) => {
   console.error(err);
+  res.status(500).json({ error: 'Erro interno' });
+});
+
+  logger.error(err);
   res.status(500).json({ error: 'Erro interno' });
 });
 
@@ -55,3 +60,9 @@ if (require.main === module) {
 
 module.exports = app;
 
+    app.listen(PORT, () => {
+        logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
+    });
+}
+
+module.exports = app;

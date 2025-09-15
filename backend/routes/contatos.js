@@ -82,6 +82,35 @@ router.post('/', async (req, res, next) => {
     logger.error(err.message);
     next(err);
   }
+    try {
+        const {
+            natureza_contato, nome, sigla, cpf, rg, data_nascimento,
+            email, telefone_fixo, telefone_celular, cep, endereco,
+            bairro, cidade, uf
+        } = req.body;
+
+        const query = `
+            INSERT INTO contatos (
+                natureza_contato, nome, sigla, cpf, rg, data_nascimento,
+                email, telefone_fixo, telefone_celular, cep, endereco,
+                bairro, cidade, uf, criado_em
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, NOW())
+            RETURNING *
+        `;
+
+        const values = [
+            natureza_contato, nome, sigla, cpf, rg, data_nascimento,
+            email, telefone_fixo, telefone_celular, cep, endereco,
+            bairro, cidade, uf
+        ];
+
+        const { rows } = await db.query(query, values);
+        res.status(201).json(rows[0]);
+    } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro ao criar contato' });
+        next(err);
+    }
 });
 
 // PUT /api/contatos/:id - Atualizar contato

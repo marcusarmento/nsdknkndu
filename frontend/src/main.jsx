@@ -1,3 +1,5 @@
+import './styles/App.css';
+import './styles/Layout.css';
 import './styles/painel-de-controle.css';
 import './styles/exportar-processo.css';
 import './styles/bloco-view.css';
