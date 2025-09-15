@@ -78,10 +78,11 @@ GRANT ALL PRIVILEGES ON DATABASE sdi_db TO postgres;
 cd backend
 npm install
 cp .env.example .env
-# Preencha o arquivo .env com os valores reais
+# Edite o arquivo .env com os valores do seu ambiente:
+# DB_USER, DB_PASSWORD, DB_HOST, DB_DATABASE, DB_PORT, PORT
 ```
 
-Em seguida, edite o arquivo `.env` preenchendo as credenciais e configurações do seu ambiente.
+O arquivo `.env.example` lista as variáveis necessárias; copie-o para `.env` e preencha os valores conforme seu ambiente.
 
 ### 5. Execute o script de criação do banco
 
