@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const logger = require('../logger');
 
 // GET /api/documentos - Buscar todos os documentos
 router.get('/', async (req, res, next) => {
@@ -20,6 +21,8 @@ router.get('/', async (req, res, next) => {
         const { rows } = await db.query(query, values);
         res.json(rows);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });
@@ -36,6 +39,8 @@ router.get('/:id', async (req, res, next) => {
 
         res.json(rows[0]);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });
@@ -68,6 +73,8 @@ router.post('/', async (req, res, next) => {
         const { rows } = await db.query(query, values);
         res.status(201).json(rows[0]);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro ao criar documento' });
         next(err);
     }
 });
@@ -104,6 +111,8 @@ router.put('/:id', async (req, res, next) => {
 
         res.json(rows[0]);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro ao atualizar documento' });
         next(err);
     }
 });
@@ -120,8 +129,11 @@ router.delete('/:id', async (req, res, next) => {
 
         res.json({ message: 'Documento excluído com sucesso' });
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro ao excluir documento' });
         next(err);
     }
 });
 
 module.exports = router;
+

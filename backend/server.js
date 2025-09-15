@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const logger = require('./logger');
 
 // 2. Importar rotas
 const processosRouter = require('./routes/processos');
@@ -56,5 +57,8 @@ app.use((err, req, res, next) => {
 
 // 9. Iniciar o servidor
 app.listen(PORT, () => {
+    logger.info(`Servidor rodando com sucesso na porta ${PORT}`);
+});
+
     console.log(`Servidor rodando com sucesso na porta ${PORT}`);
 });

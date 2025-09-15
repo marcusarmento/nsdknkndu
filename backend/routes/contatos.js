@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const logger = require('../logger');
 
 // GET /api/contatos - Buscar todos os contatos
 router.get('/', async (req, res, next) => {
@@ -9,6 +10,8 @@ router.get('/', async (req, res, next) => {
         const { rows } = await db.query('SELECT * FROM contatos ORDER BY nome ASC');
         res.json(rows);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });
@@ -25,6 +28,8 @@ router.get('/:id', async (req, res, next) => {
 
         res.json(rows[0]);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });
@@ -56,8 +61,7 @@ router.post('/', async (req, res, next) => {
         const { rows } = await db.query(query, values);
         res.status(201).json(rows[0]);
     } catch (err) {
-        next(err);
-    }
+        res.status(500).json({ error: 'Erro ao criar contato' });
 });
 
 // PUT /api/contatos/:id - Atualizar contato
@@ -94,6 +98,8 @@ router.put('/:id', async (req, res, next) => {
 
         res.json(rows[0]);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro ao atualizar contato' });
         next(err);
     }
 });
@@ -110,8 +116,11 @@ router.delete('/:id', async (req, res, next) => {
 
         res.json({ message: 'Contato excluído com sucesso' });
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro ao excluir contato' });
         next(err);
     }
 });
 
 module.exports = router;
+

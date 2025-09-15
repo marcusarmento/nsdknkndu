@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const logger = require('../logger');
 
 // GET /api/pesquisa - Pesquisar processos
 router.get('/', async (req, res, next) => {
@@ -41,8 +42,11 @@ router.get('/', async (req, res, next) => {
         const { rows } = await db.query(query, values);
         res.json(rows);
     } catch (err) {
+        logger.error(err.message);
+        res.status(500).json({ error: 'Erro no servidor' });
         next(err);
     }
 });
 
 module.exports = router;
+
