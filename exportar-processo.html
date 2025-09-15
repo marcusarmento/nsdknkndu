@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Exportar Processo</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="estatisticas.css">
+    <link rel="stylesheet" href="exportar-processo.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Gerar Arquivo do Processo 19957.000052/2014-19</h2>
+                    <p>Selecione os documentos que deseja incluir no arquivo final.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Gerar PDF</button>
+                    <button class="btn btn-primary"><i class="fa-solid fa-file-zipper"></i> Gerar ZIP</button>
+                    <a href="processo-view.html" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-body">
+                    <table class="stats-table export-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" title="Selecionar Todos"></th>
+                                <th>Nº SEI</th>
+                                <th>Documento</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>0001623</td>
+                                <td>Ofício 5</td>
+                                <td>10/02/2025</td>
+                            </tr>
+                             <tr>
+                                <td><input type="checkbox"></td>
+                                <td>0001624</td>
+                                <td>Memorando 6</td>
+                                <td>11/02/2025</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>0001627</td>
+                                <td>E-mail 7</td>
+                                <td>11/02/2025</td>
+                            </tr>
+                             <tr>
+                                <td><input type="checkbox"></td>
+                                <td>0001675</td>
+                                <td>Manual do usuário SEI</td>
+                                <td>12/02/2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="exportar-processo.js"></script>
+</body>
+</html>

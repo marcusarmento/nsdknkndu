@@ -1,0 +1,47 @@
+/* Estilos para a funcionalidade de Consultar Andamento */
+
+.consultar-andamento-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    text-decoration: none;
+    font-weight: 600;
+    color: #0d47a1;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.consultar-andamento-link:hover {
+    background-color: #e3f2fd;
+}
+
+/* Tamanho extra-grande para o modal de histórico */
+.modal-xl {
+    max-width: 1100px;
+}
+
+/* --- CORREÇÃO E MELHORIA PARA A TABELA DE ANDAMENTO --- */
+.andamento-table {
+    width: 100%;
+    /* A propriedade mais importante para garantir o alinhamento */
+    table-layout: fixed; 
+    border-collapse: collapse; /* Garante que as bordas fiquem limpas */
+}
+
+.andamento-table th,
+.andamento-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    /* Evita que textos muito longos sem espaço quebrem o layout */
+    word-wrap: break-word; 
+}
+
+/* Definindo larguras específicas para cada coluna */
+.andamento-table th:nth-child(1), .andamento-table td:nth-child(1) { width: 20%; } /* Coluna Data/Hora */
+.andamento-table th:nth-child(2), .andamento-table td:nth-child(2) { width: 15%; } /* Coluna Unidade */
+.andamento-table th:nth-child(3), .andamento-table td:nth-child(3) { width: 15%; } /* Coluna Usuário */
+/* A 4ª coluna (Descrição) ocupará o espaço restante automaticamente */

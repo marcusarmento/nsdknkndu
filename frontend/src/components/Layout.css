@@ -1,0 +1,93 @@
+
+/* Layout.css */
+
+.layout-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #1e293b; /* Cor mais moderna */
+    color: #e2e8f0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+}
+
+.sidebar-header {
+    margin-bottom: 2rem;
+}
+
+.logo-sdi {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espaçamento entre os itens */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: #334155;
+    color: #fff;
+}
+
+/* Estilo para o link ativo */
+.nav-item.active {
+    background-color: #4f46e5; /* Roxo/índigo vibrante */
+    color: #fff;
+    font-weight: 600;
+}
+
+.nav-icon {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto; /* Permite scroll se o conteúdo for grande */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4f46e5;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}

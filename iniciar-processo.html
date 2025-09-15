@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Iniciar Processo</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo-sdi">SDI</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item active"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="textos-padrao.html" class="nav-item"><i class="fa-solid fa-quote-left"></i><span>Textos Padrão</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content"> 
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Iniciar Processo</h2>
+                    <p>Preencha os dados abaixo para criar um novo processo.</p>
+                </div>
+            </header>
+
+            <form class="process-form-container">
+
+                <section class="module-card card-protocolo">
+                    <div class="card-header">
+                        <h3>Protocolo</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="protocol-options">
+                            <div class="radio-group">
+                                <input type="radio" id="protocolo-automatico" name="protocolo_tipo" value="automatico" checked>
+                                <label for="protocolo-automatico">Automático</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="protocolo-informado" name="protocolo_tipo" value="informado">
+                                <label for="protocolo-informado">Informado</label>
+                            </div>
+                        </div>
+                        <div id="protocolo-informado-campos" class="hidden">
+                            <div class="input-group">
+                                <label for="protocolo-numero-manual">Número do Processo Físico</label>
+                                <input type="text" id="protocolo-numero-manual" placeholder="Digite o número...">
+                            </div>
+                            <div class="input-group">
+                                <label for="protocolo-data">Data de Abertura</label>
+                                <input type="date" id="protocolo-data">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="module-card card-dados-processo">
+                    <div class="card-header">
+                        <h3>Dados do Processo</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group"><label for="tipo-processo">Tipo do Processo</label><select id="tipo-processo" name="tipo_processo"><option value="" disabled selected>Selecione um tipo...</option><option value="ferias">Pessoal: Férias</option><option value="abono">Pessoal: Abono</option><option value="adicional">Pessoal: Adicional Noturno</option><option value="outro">Outro</option></select></div>
+                        <div class="input-group"><label for="especificacao">Especificação</label><textarea id="especificacao" name="especificacao" rows="3" placeholder="Complemente o tipo de processo..."></textarea></div>
+                        <div class="input-group"><label>Classificação por Assuntos</label><div class="readonly-tags"><span class="tag">02.06.01.07 - Eventos de capacitação - realização</span></div></div>
+                        <div class="input-group"><label for="interessados-input">Interessados</label><div class="interactive-input"><input type="text" id="interessados-input" placeholder="Digite o CPF ou nome para buscar..."><button type="button" class="add-button">Adicionar</button></div><div class="tags-list" id="interessados-list"></div></div>
+                        <div class="input-group"><label for="observacoes">Observações desta unidade</label><textarea id="observacoes" name="observacoes" rows="4" placeholder="Insira informações adicionais..."></textarea></div>
+                    </div>
+                </section>
+
+                <section class="module-card card-nivel-acesso">
+                    <div class="card-header">
+                        <h3>Nível de Acesso</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="access-level-layout">
+                            <div class="access-level-options">
+                                <div class="radio-group">
+                                    <input type="radio" id="acesso-publico" name="nivel_acesso" value="publico" checked>
+                                    <label for="acesso-publico"><i class="fa-solid fa-globe"></i> Público</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="acesso-restrito" name="nivel_acesso" value="restrito">
+                                    <label for="acesso-restrito"><i class="fa-solid fa-lock"></i> Restrito</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="acesso-sigiloso" name="nivel_acesso" value="sigiloso">
+                                    <label for="acesso-sigiloso"><i class="fa-solid fa-user-secret"></i> Sigiloso</label>
+                                </div>
+                            </div>
+                            <div id="access-level-explanation" class="explanation-card">
+                                <div id="explanation-publico">
+                                    <h4><i class="fa-solid fa-globe"></i> Acesso Público</h4>
+                                    <p>Qualquer pessoa com o número do processo pode visualizar seu conteúdo. Este processo será listado em pesquisas públicas.</p>
+                                </div>
+                                <div id="explanation-restrito" class="hidden">
+                                    <h4><i class="fa-solid fa-lock"></i> Acesso Restrito</h4>
+                                    <p>Apenas usuários dos setores por onde o processo tramita podem visualizar o conteúdo.</p>
+                                </div>
+                                <div id="explanation-sigiloso" class="hidden">
+                                    <h4><i class="fa-solid fa-user-secret"></i> Acesso Sigiloso</h4>
+                                    <p>Apenas usuários e/ou setores especificamente autorizados por você poderão visualizar o conteúdo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sigiloso-options" class="hidden">
+                            <hr style="border-top: 1px solid #eee; margin: 20px 0;">
+                            <p class="info-text">Indique os usuários ou setores que terão permissão para ver este processo.</p>
+                            <div class="input-group">
+                                <label for="sigiloso-input">Conceder acesso para:</label>
+                                <div class="interactive-input">
+                                    <input type="text" id="sigiloso-input" placeholder="Buscar por usuário ou setor...">
+                                    <button type="button" class="add-button">Conceder</button>
+                                </div>
+                                <div class="tags-list" id="sigiloso-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="action-bar">
+                    <button type="button" class="btn btn-secondary">Voltar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Processo</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="iniciar-processo.js"></script>
+</body>
+</html>

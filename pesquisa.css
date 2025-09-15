@@ -1,0 +1,103 @@
+/* Estilos para a página de Pesquisa */
+
+/* Grid para o formulário de filtros */
+.search-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px 30px;
+}
+
+.date-filter-group {
+    grid-column: 1 / -1; /* Faz o grupo de data ocupar a linha inteira */
+}
+
+.radio-group-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin-top: 10px;
+}
+
+.date-range-fields {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.search-button-container {
+    grid-column: 1 / -1; /* Ocupa a linha inteira */
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+
+/* Estilos para a lista de resultados */
+.results-summary {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.results-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.result-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-icon {
+    font-size: 24px;
+    color: #5585c5;
+    margin-top: 5px;
+}
+
+.result-content {
+    flex-grow: 1;
+}
+
+.result-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0d47a1;
+    text-decoration: none;
+}
+.result-title:hover {
+    text-decoration: underline;
+}
+
+.result-snippet {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+.highlight {
+    background-color: #fffde7;
+    font-weight: 600;
+}
+
+.result-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+}
+
+.result-doc-number {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Novo Contato</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+    <link rel="stylesheet" href="novo-contato.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Novo Contato</h2>
+                    <p>Preencha os dados abaixo para cadastrar um novo contato.</p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <form id="form-novo-contato">
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label>Natureza</label>
+                            <div class="radio-group-container">
+                                <div class="radio-group">
+                                    <input type="radio" id="natureza-pf" name="natureza_contato" value="pf" checked>
+                                    <label for="natureza-pf">Pessoa Física</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="natureza-pj" name="natureza_contato" value="pj">
+                                    <label for="natureza-pj">Pessoa Jurídica</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-grid">
+                            <div class="input-group"><label for="contato-nome">Nome / Razão Social</label><input type="text" id="contato-nome"></div>
+                            <div class="input-group"><label for="contato-sigla">Sigla / Nome Fantasia</label><input type="text" id="contato-sigla"></div>
+                        </div>
+
+                        <div id="campos-pf">
+                            <hr class="form-divider">
+                            <div class="contact-form-grid">
+                                <div class="input-group"><label for="contato-cpf">CPF</label><input type="text" id="contato-cpf"></div>
+                                <div class="input-group"><label for="contato-rg">RG</label><input type="text" id="contato-rg"></div>
+                                <div class="input-group"><label for="contato-nascimento">Data de Nascimento</label><input type="date" id="contato-nascimento"></div>
+                            </div>
+                        </div>
+
+                        <hr class="form-divider">
+                        <div class="contact-form-grid">
+                            <div class="input-group"><label for="contato-email">E-mail</label><input type="text" id="contato-email"></div>
+                            <div class="input-group"><label for="contato-tel-fixo">Telefone Fixo</label><input type="text" id="contato-tel-fixo"></div>
+                            <div class="input-group"><label for="contato-tel-cel">Telefone Celular</label><input type="text" id="contato-tel-cel"></div>
+                        </div>
+                        
+                        <hr class="form-divider">
+                        <div class="contact-form-grid">
+                             <div class="input-group"><label for="contato-cep">CEP</label><input type="text" id="contato-cep"></div>
+                             <div class="input-group"><label for="contato-endereco">Endereço</label><input type="text" id="contato-endereco"></div>
+                             <div class="input-group"><label for="contato-bairro">Bairro</label><input type="text" id="contato-bairro"></div>
+                             <div class="input-group"><label for="contato-cidade">Cidade</label><input type="text" id="contato-cidade"></div>
+                             <div class="input-group"><label for="contato-uf">Estado (UF)</label><input type="text" id="contato-uf"></div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <a href="contatos.html" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Salvar Contato</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="novo-contato.js"></script>
+</body>
+</html>

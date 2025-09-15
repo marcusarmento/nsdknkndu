@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Retorno Programado</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="estatisticas.css"> 
+    <link rel="stylesheet" href="retorno-programado.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1 class="logo-sdi">SDI</h1></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item active"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="textos-padrao.html" class="nav-item"><i class="fa-solid fa-quote-left"></i><span>Textos Padrão</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Retorno Programado</h2>
+                    <p>Controle os prazos dos processos com retorno programado.</p>
+                </div>
+            </header>
+
+            <div class="retorno-layout">
+                <div class="tabelas-container">
+                    <section class="module-card">
+                        <div class="card-header"><h3>Processos aguardando retorno</h3></div>
+                        <div class="card-body">
+                            <table class="stats-table">
+                                <thead><tr><th>Processo</th><th>Unidade</th><th>Data Programada</th><th>Prazo Restante (dias)</th></tr></thead>
+                                <tbody><tr><td>19957.000051/2014-74</td><td>SAD</td><td>25/09/2025</td><td>11</td></tr></tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section class="module-card">
+                        <div class="card-header"><h3>Processos para devolver</h3></div>
+                        <div class="card-body">
+                             <table class="stats-table">
+                                <thead><tr><th>Processo</th><th>Unidade</th><th>Data Programada</th><th>Prazo Restante (dias)</th></tr></thead>
+                                <tbody><tr><td>19957.000021/2014-11</td><td>GAL</td><td>15/09/2025</td><td>2</td></tr></tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="calendario-sidebar">
+                    <div class="module-card">
+                        <div class="card-body">
+                            <div id="calendar-container"></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+    
+    <script src="retorno-programado.js"></script>
+</body>
+</html>

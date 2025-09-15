@@ -1,0 +1,175 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Reset básico e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Container principal que divide a tela em duas */
+.login-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* ==================== ESTILOS DO PAINEL ESQUERDO ==================== */
+.left-panel {
+    flex: 1; /* Ocupa metade da tela */
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-area {
+    text-align: center;
+}
+
+.logo-sdi {
+    font-size: 80px;
+    font-weight: 600;
+    color: #0d47a1; /* Azul escuro para o logo */
+    border: 5px solid #0d47a1;
+    padding: 10px 30px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.logo-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* ==================== ESTILOS DO PAINEL DIREITO ==================== */
+.right-panel {
+    flex: 1; /* Ocupa a outra metade da tela */
+    background-color: #0d47a1; /* Cor de fundo azul escura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Largura máxima do formulário */
+}
+
+.login-form h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.login-form .form-description {
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0d47a1;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #0d47a1;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1976d2; /* Azul um pouco mais claro para o botão */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #1565c0; /* Azul um pouco mais escuro ao passar o mouse */
+}
+
+.footer-info {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+/* ==================== RESPONSIVIDADE (TELA FLUIDA) ==================== */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Empilha os painéis em telas pequenas */
+    }
+
+    .left-panel {
+        display: none; /* Esconde o painel da logo em telas de celular para focar no login */
+    }
+
+    .login-form {
+        box-shadow: none; /* Remove a sombra em telas pequenas */
+    }
+}

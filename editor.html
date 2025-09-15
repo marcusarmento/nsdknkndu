@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Editor de Documento</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="editor.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Editor de Documento</h2>
+                    <p>Editando: <strong>Memorando nº 12 (0002253)</strong></p>
+                </div>
+                <div class="header-actions">
+                    <a href="processo-view.html" class="btn btn-secondary">Cancelar</a>
+                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-save"></i> Salvar</button>
+                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-signature"></i> Salvar e Assinar</button>
+                </div>
+            </header>
+
+            <section class="module-card editor-card">
+                <div class="card-body">
+                    <textarea id="editor-de-texto">
+                        <p>Prezado(a) Senhor(a),</p>
+                        <p>Este é um exemplo de conteúdo inicial para o documento que está sendo criado no editor.</p>
+                        <p>Atenciosamente,</p>
+                    </textarea>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="editor.js"></script> </body>
+</html>

@@ -1,0 +1,66 @@
+/* Estilos para a página de Estatísticas */
+
+.filter-card {
+    margin-bottom: 30px; 
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-form label {
+    font-weight: 600;
+    color: #333;
+}
+
+.filter-form input[type="date"] {
+    width: auto;
+    padding: 10px;
+}
+
+.filter-form .btn {
+    margin-left: auto;
+}
+
+
+/* --- MUDANÇA PRINCIPAL AQUI --- */
+
+.stats-grid {
+    display: grid;
+    /* Define que a grade terá apenas UMA coluna, ocupando todo o espaço disponível */
+    grid-template-columns: 1fr;
+    gap: 30px; /* Mantém o espaçamento vertical entre os cards */
+}
+
+
+/* --- O restante do CSS para as tabelas continua o mesmo --- */
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table th, .stats-table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.stats-table th {
+    font-weight: 600;
+    color: #333;
+}
+
+.stats-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.stats-table td:last-child {
+    text-align: right;
+    font-weight: 500;
+}
+
+/* As Media Queries para a grade não são mais necessárias com este layout */

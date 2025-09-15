@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Anexar Processo</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Anexar Processo</h2>
+                    <p>Anexar um processo ao processo principal <strong>19957.000052/2014-19</strong></p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-body">
+                    <form>
+                        <div class="input-group">
+                            <label for="processo-anexar-input">Processo a ser anexado:</label>
+                            <div class="interactive-input">
+                                <input type="text" id="processo-anexar-input" placeholder="Digite o número do processo...">
+                                <button type="button" class="btn btn-secondary">Pesquisar</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="processo-anexar-tipo">Tipo:</label>
+                            <input type="text" id="processo-anexar-tipo" disabled placeholder="Aguardando pesquisa...">
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <section class="module-card">
+                 <div class="card-header">
+                    <h3>ATENÇÃO!</h3>
+                </div>
+                <div class="card-body confirmation-text">
+                    <p>Após a anexação não será mais possível incluir ou alterar documentos no processo.</p>
+                    <p>Esta operação somente poderá ser cancelada pelo Administrador do Sistema.</p>
+                    <p><strong>Confirma a anexação do processo?</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="processo-view.html" class="btn btn-secondary">Cancelar</a>
+                    <button type="button" class="btn btn-primary">Confirmar Anexação</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

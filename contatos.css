@@ -1,0 +1,13 @@
+/* Estilos para a página de Contatos */
+
+.contatos-filter-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px 30px;
+    align-items: flex-end;
+}
+
+.contatos-filter-form .filter-actions {
+    /* Faz o botão ocupar a última célula e se alinhar à direita */
+    justify-self: end;
+}

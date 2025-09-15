@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Sobrestar Processo</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Sobrestar Processo</h2>
+                    <p>Processo a ser sobrestado: <strong>19957.000052/2014-19</strong></p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-body">
+                    <form id="form-sobrestar-processo">
+                        <div class="input-group">
+                            <div class="radio-group-container vertical">
+                                <div class="radio-group"><input type="radio" id="tipo-somente-sobrestar" name="tipo_sobrestamento" value="simples" checked><label for="tipo-somente-sobrestar">Somente Sobrestar</label></div>
+                                <div class="radio-group"><input type="radio" id="tipo-sobrestar-vinculado" name="tipo_sobrestamento" value="vinculado"><label for="tipo-sobrestar-vinculado">Sobrestar vinculando a outro processo</label></div>
+                            </div>
+                        </div>
+                        <div id="campo-processo-vinculado" class="input-group hidden">
+                            <label for="processo-vinculado">Processo para Vinculação:</label>
+                            <input type="text" id="processo-vinculado" placeholder="Digite o número do processo...">
+                        </div>
+                        <div class="input-group">
+                            <label for="motivo-sobrestamento">Motivo:</label>
+                            <textarea id="motivo-sobrestamento" rows="4" placeholder="Descreva o motivo..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a href="processo-view.html" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="sobrestar-processo.js"></script>
+</body>
+</html>

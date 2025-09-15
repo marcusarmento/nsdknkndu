@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Relacionar Processo</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+    <link rel="stylesheet" href="estatisticas.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1 class="logo-sdi">SDI</h1></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Relacionar Processos</h2>
+                    <p>Relacionar processos ao processo principal <strong>19957.000052/2014-19</strong></p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-body">
+                    <form>
+                        <div class="input-group">
+                            <label for="processo-destino-input">Processo Destino:</label>
+                            <div class="interactive-input">
+                                <input type="text" id="processo-destino-input" placeholder="Digite o número do processo...">
+                                <button type="button" class="btn btn-secondary">Pesquisar</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="processo-destino-tipo">Tipo:</label>
+                            <input type="text" id="processo-destino-tipo" disabled placeholder="Aguardando pesquisa...">
+                        </div>
+                        <button type="submit" class="btn btn-primary" disabled>Adicionar</button>
+                    </form>
+                </div>
+                 <div class="modal-footer">
+                    <a href="processo-view.html" class="btn btn-secondary">Voltar ao Processo</a>
+                </div>
+            </section>
+
+            <section class="module-card">
+                <div class="card-header"><h3>Lista de Processos Relacionados</h3></div>
+                <div class="card-body">
+                    <table class="stats-table">
+                        </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

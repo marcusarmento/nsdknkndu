@@ -1,0 +1,84 @@
+/* Estilos para a página do Painel de Controle */
+
+.panel-grid {
+    display: grid;
+    /* Cria colunas que tentam ter 400px, mas podem encolher/crescer */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+/* Estilos para os Widgets de Resumo Numérico */
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+}
+.summary-item {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+.summary-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #0d47a1;
+}
+.summary-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+.error-text {
+    color: #d32f2f; /* Vermelho para números que indicam alerta */
+}
+
+/* Estilos para a Linha do Tempo (Timeline) */
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+.timeline-item {
+    display: flex;
+    position: relative;
+    padding-bottom: 25px;
+}
+/* A linha vertical da timeline */
+.timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 2px;
+    height: 100%;
+    background-color: #e0e0e0;
+}
+.timeline-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+    z-index: 2;
+}
+.icon-recebido { background-color: #42a5f5; } /* Azul */
+.icon-documento { background-color: #66bb6a; } /* Verde */
+.icon-tramitado { background-color: #78909c; } /* Cinza */
+
+.timeline-content {
+    margin-left: 20px;
+}
+.timeline-content strong {
+    display: block;
+    font-weight: 600;
+}
+.timeline-content p {
+    margin: 5px 0;
+}
+.timeline-content small {
+    color: #777;
+}

@@ -1,0 +1,51 @@
+/* Estilos para a página de Retorno Programado */
+
+.retorno-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 30px;
+    align-items: start;
+}
+
+.tabelas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- MUDANÇA: ESTILOS PARA O NOVO CALENDÁRIO (FLATPICKR) --- */
+
+/* Força o calendário a não ter bordas dentro do nosso card */
+.flatpickr-calendar {
+    box-shadow: none !important;
+    width: 97% !important;
+}
+
+/* Personaliza a cor do dia selecionado para combinar com nosso tema */
+.flatpickr-day.selected, .flatpickr-day.today {
+    background: #1976d2 !important;
+    border-color: #1976d2 !important;
+}
+
+/* Estilos para os dias marcados (vencidos e a vencer) */
+.flatpickr-day.vencido {
+    background: #e57373; /* Vermelho claro */
+    color: #fff;
+    border-color: #e53935;
+}
+.flatpickr-day.a-vencer {
+    background: #fff176; /* Amarelo claro */
+    color: #333;
+    border-color: #fdd835;
+}
+
+
+/* Media query para telas menores */
+@media (max-width: 992px) {
+    .retorno-layout {
+        grid-template-columns: 1fr;
+    }
+    .calendario-sidebar {
+        order: -1;
+    }
+}

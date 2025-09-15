@@ -1,0 +1,13 @@
+/* Estilos para a página de Enviar Processo */
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+#retorno-programado {
+    /* Garante que o campo de data não ocupe a largura toda */
+    width: auto;
+}

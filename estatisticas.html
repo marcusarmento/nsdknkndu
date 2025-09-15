@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Estatísticas</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css"> 
+    <link rel="stylesheet" href="estatisticas.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo-sdi">SDI</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="textos-padrao.html" class="nav-item"><i class="fa-solid fa-quote-left"></i><span>Textos Padrão</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item active"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Estatísticas da Unidade</h2>
+                    <p>Visualize o desempenho e a movimentação de processos.</p>
+                </div>
+            </header>
+
+            <section class="module-card filter-card">
+                <form class="filter-form">
+                    <label for="periodo-inicio">Período:</label>
+                    <input type="date" id="periodo-inicio" title="Data de início">
+                    <span>Até</span>
+                    <input type="date" id="periodo-fim" title="Data final">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-filter"></i> Pesquisar</button>
+                </form>
+            </section>
+
+            <div class="stats-grid">
+                
+                <section class="module-card">
+                    <div class="card-header">
+                        <h3>Processos Gerados no Período (por tipo)</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="chartProcessosGerados"></canvas>
+                    </div>
+                </section>
+
+                <section class="module-card">
+                    <div class="card-header">
+                        <h3>Tempo Médio de Tramitação</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="chartTempoMedio"></canvas>
+                    </div>
+                </section>
+
+                <section class="module-card stats-table-card">
+                    <div class="card-header">
+                        <h3>Processos com Andamento Aberto</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Quantidade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Abertura de Conta Corrente</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>Acordo de Cooperação Técnica</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>Adicional de Insalubridade</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>Auditoria - Controle Interno</td>
+                                    <td>2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="estatisticas.js"></script>
+</body>
+</html>

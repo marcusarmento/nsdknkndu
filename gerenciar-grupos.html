@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Grupos de Acompanhamento</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="estatisticas.css">
+    <link rel="stylesheet" href="blocos.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Grupos de Acompanhamento</h2>
+                    <p>Crie e gerencie os grupos para organizar seus acompanhamentos.</p>
+                </div>
+                <div class="header-actions">
+                    <a href="novo-grupo.html" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Novo Grupo</a>&nbsp;&nbsp;
+                    <a href="acompanhamento.html" class="btn btn-secondary">Fechar</a>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-body">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Nome</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Processo concluído em todas as unidades</td>
+                                <td class="actions-cell">
+                                    <button class="action-btn" title="Alterar Grupo"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn" title="Excluir Grupo"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Processos para exemplo</td>
+                                <td class="actions-cell">
+                                    <button class="action-btn" title="Alterar Grupo"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn" title="Excluir Grupo"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Processos selecionados para treinamento</td>
+                                <td class="actions-cell">
+                                    <button class="action-btn" title="Alterar Grupo"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn" title="Excluir Grupo"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

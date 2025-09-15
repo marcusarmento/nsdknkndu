@@ -1,0 +1,18 @@
+/* Estilos para a página de Base de Conhecimento */
+
+.knowledge-base-filter {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.knowledge-base-filter .input-group {
+    flex-grow: 1; /* Faz o campo de pesquisa crescer */
+    margin-bottom: 0;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+}

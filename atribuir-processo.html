@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Atribuir Processo</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Atribuir Processo</h2>
+                    <p>Atribua a responsabilidade dos processos selecionados.</p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-body">
+                    <form>
+                        <div class="input-group">
+                            <label>Processos Selecionados:</label>
+                            <div class="readonly-tags">
+                                <span class="tag">19957.000026/2014-91</span>
+                                </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="atribuir-para-select">Atribuir para:</label>
+                            <select id="atribuir-para-select">
+                                <option disabled selected>Selecione um usuário...</option>
+                                <option>rsdantas (Rogério Dantas)</option>
+                                <option>natalie (Natalie)</option>
+                                <option>fclaudino (Fabrício Claudino)</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a href="dashboard.html" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo-sdi">SDI</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="textos-padrao.html" class="nav-item"><i class="fa-solid fa-quote-left"></i><span>Textos Padrão</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Controle de Processos</h2>
+                    <p>Bem-vindo(a) de volta!</p>
+                </div>
+                <div class="user-info" id="user-menu-button">
+                    <span>Olá, Usuário</span>
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <div id="user-menu-dropdown" class="user-dropdown hidden">
+                        <a href="#" class="dropdown-item">
+                            <i class="fa-solid fa-user-circle"></i>
+                            <span>Meu Perfil</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>Abrir Chamado</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="login.html" class="dropdown-item dropdown-item-logout">
+                            <i class="fa-solid fa-sign-out-alt"></i>
+                            <span>Sair do Sistema</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <section class="toolbar">
+                <a href="anotacoes.html" class="tool-button" title="Inserir Anotações">
+                    <i class="fa-solid fa-note-sticky"></i> Anotações
+                </a>
+                <a href="concluir-processo.html" class="tool-button" title="Concluir Processo na Unidade">
+                    <i class="fa-solid fa-check-double"></i> Concluir
+                </a>
+            </section>
+            
+            <div class="content-modules">
+                
+                <section class="module-card">
+                    <div class="card-header"><h3><i class="fa-solid fa-arrow-down-long"></i> Recebidos</h3></div>
+                    <div class="card-body">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox"></th>
+                                    <th>Processo</th>
+                                    <th>Interessado</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-recebidos">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="module-card">
+                    <div class="card-header"><h3><i class="fa-solid fa-arrow-up-long"></i> Gerados</h3></div>
+                     <div class="card-body">
+                        <table class="dashboard-table">
+                             <thead>
+                                <tr>
+                                    <th><input type="checkbox"></th>
+                                    <th>Processo</th>
+                                    <th>Interessado</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                             <tbody id="tabela-gerados">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal-andamento" class="modal-overlay hidden">
+        <div class="modal-content modal-xl">
+            <div class="modal-header">
+                <h2>Histórico do Processo 19957.000026/2014-91</h2>
+                <button class="close-button" data-modal-id="modal-andamento">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="stats-table andamento-table">
+                     </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

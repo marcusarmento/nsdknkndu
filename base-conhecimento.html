@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Base de Conhecimento</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="estatisticas.css"> <link rel="stylesheet" href="blocos.css"> <link rel="stylesheet" href="base-conhecimento.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo-sdi">SDI</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item active"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="textos-padrao.html" class="nav-item"><i class="fa-solid fa-quote-left"></i><span>Textos Padrão</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Base de Conhecimento</h2>
+                    <p>Consulte artigos e procedimentos do sistema.</p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <form class="knowledge-base-filter">
+                    <div class="input-group">
+                        <label for="kb-search">Palavras-chave</label>
+                        <input type="text" id="kb-search" placeholder="Digite para filtrar por descrição...">
+                    </div>
+                    <div class="filter-actions">
+                        <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-search"></i> Pesquisar</button>
+                        <button type="button" class="btn btn-secondary">Minha Base</button>
+                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Novo Artigo</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="module-card">
+                <div class="card-header">
+                    <h3>Artigos Encontrados</h3>
+                </div>
+                <div class="card-body">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Usuário Criador</th>
+                                <th>Data de Criação</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Procedimento para solicitação de férias</td>
+                                <td>natalie</td>
+                                <td>22/01/2025 08:10:28</td>
+                                <td class="actions-cell">
+                                    <button class="action-btn" title="Visualizar Artigo"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="action-btn" title="Editar Artigo"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn" title="Excluir Artigo"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Guia para anexação de processos</td>
+                                <td>moniquearaujo</td>
+                                <td>06/02/2025 16:42:53</td>
+                                 <td class="actions-cell">
+                                    <button class="action-btn" title="Visualizar Artigo"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="action-btn" title="Editar Artigo"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn" title="Excluir Artigo"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        
+    </div>
+
+    <script src="base-conhecimento.js"></script>
+</body>
+</html>

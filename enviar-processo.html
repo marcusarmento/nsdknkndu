@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Enviar Processo</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+    <link rel="stylesheet" href="enviar-processo.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Enviar Processo</h2>
+                    <p>Selecione as unidades de destino e as opções de envio.</p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <form id="form-enviar-processo">
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label>Processos a Enviar:</label>
+                            <div class="readonly-tags">
+                                <span class="tag">19957.000026/2014-91</span>
+                                </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="unidades-input">Unidades de Destino:</label>
+                            <div class="interactive-input">
+                                <input type="text" id="unidades-input" placeholder="Digite a sigla da unidade para adicionar...">
+                                <button type="button" id="btn-add-unidade" class="btn btn-secondary">Adicionar</button>
+                            </div>
+                            <div id="unidades-list" class="tags-list">
+                                </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="manter-aberto">
+                                <label for="manter-aberto">Manter processo aberto na unidade atual</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="remover-anotacao">
+                                <label for="remover-anotacao">Remover anotação</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="enviar-email">
+                                <label for="enviar-email">Enviar e-mail de notificação</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="retorno-programado">Retorno Programado:</label>
+                            <input type="date" id="retorno-programado">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a href="dashboard.html" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Enviar Processo</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="enviar-processo.js"></script> </body>
+</html>

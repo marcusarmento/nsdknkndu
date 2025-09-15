@@ -1,0 +1,53 @@
+/* Estilos para a página de Gerenciamento de Blocos */
+
+.header-actions {
+    margin-left: auto; /* Empurra o botão para a direita */
+}
+
+/* Estilo para as tags de tipo de bloco */
+.tag-tipo {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.tipo-reuniao {
+    background-color: #42a5f5; /* Azul */
+}
+
+.tipo-assinatura {
+    background-color: #66bb6a; /* Verde */
+}
+
+.tipo-interno {
+    background-color: #78909c; /* Cinza */
+}
+
+/* Estilo para a célula de ações */
+.actions-cell {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    padding: 5px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #f0f4f8;
+    color: #0d47a1;
+}

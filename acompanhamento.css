@@ -1,0 +1,15 @@
+/* Estilos para a página de Acompanhamento Especial */
+
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.filter-bar .input-group {
+    flex-grow: 1;
+    max-width: 400px; /* Limita a largura do dropdown */
+    margin-bottom: 0;
+}

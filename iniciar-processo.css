@@ -1,0 +1,206 @@
+/* Estilos específicos para o formulário de Iniciar Processo */
+
+.process-form-container {
+    display: grid;
+    /* Define duas colunas: a primeira ocupa 2/3 do espaço, a segunda 1/3 */
+    grid-template-columns: 2fr 1fr; 
+    gap: 30px;
+    
+    /* Define as áreas do grid */
+    grid-template-areas: 
+        "dados-processo protocolo"
+        "dados-processo nivel-acesso"
+        "actions actions";
+}
+
+/* Associa cada card à sua área definida no grid */
+.card-dados-processo { grid-area: dados-processo; }
+.card-protocolo { grid-area: protocolo; }
+.card-nivel-acesso { grid-area: nivel-acesso; }
+.action-bar { grid-area: actions; }
+
+
+/* --- O restante do CSS continua muito parecido --- */
+
+.input-group { margin-bottom: 20px; }
+.card-body .input-group:last-child { margin-bottom: 0; }
+.input-group label { display: block; font-weight: 500; margin-bottom: 8px; color: #333; }
+
+.input-group input[type="text"],
+.input-group input[type="date"], /* Adicionado estilo para o campo de data */
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #0d47a1;
+    box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.1);
+}
+
+.input-group input[type="text"]:disabled {
+    background-color: #f0f4f8;
+    cursor: not-allowed;
+}
+
+/* Estilos para Radio Buttons */
+.protocol-options, .access-level-options {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+    gap: 25px;
+    margin-bottom: 15px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.radio-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Componentes de Tags/Pills */
+.readonly-tags .tag, .tags-list .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 4px 4px 4px 0;
+}
+.interactive-input {
+    display: flex;
+    gap: 10px;
+}
+.add-button {
+    padding: 0 20px;
+    border: none;
+    background-color: #0d47a1;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+.tags-list {
+    margin-top: 10px;
+}
+.tags-list .tag button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #0d47a1;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Seção Sigilosa Escondida */
+.hidden {
+    display: none;
+}
+.info-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Barra de Ações */
+.action-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #1976d2;
+    color: white;
+}
+.btn-secondary {
+    background-color: #f0f4f8;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.protocol-options, .access-level-options { display: flex; flex-wrap: wrap; gap: 25px; margin-bottom: 20px; }
+.radio-group { display: flex; align-items: center; gap: 8px; }
+.radio-group label { margin-bottom: 0; cursor: pointer; font-weight: 500; }
+.hidden { display: none; }
+.action-bar { display: flex; justify-content: flex-end; gap: 15px; padding-top: 10px; }
+
+.access-level-layout {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Coluna 1 se ajusta ao conteúdo, Coluna 2 ocupa o resto */
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* MUDANÇA: Opções de rádio agora em coluna */
+.access-level-options {
+    flex-direction: column;
+    gap: 15px; /* Ajusta o espaçamento vertical */
+    border-right: 1px solid #f0f0f0; /* Linha divisória sutil */
+    padding-right: 30px;
+    margin-bottom: 0; /* Remove a margem que não é mais necessária */
+}
+
+/* NOVO: Estilos para o card de explicação */
+.explanation-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.explanation-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #0d47a1;
+}
+
+.explanation-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+
+/* Adicionando responsividade para telas menores */
+@media (max-width: 992px) {
+    .process-form-container {
+        /* Em telas menores, volta para o layout de uma coluna só */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "protocolo"
+            "dados-processo"
+            "nivel-acesso"
+            "actions";
+    }
+}

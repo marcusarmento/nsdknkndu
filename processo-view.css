@@ -1,0 +1,56 @@
+/* Layout da página de visualização do processo */
+.process-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: calc(100vh - 220px);
+}
+
+/* Estilo da Árvore de Documentos */
+.document-tree-container {
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+    overflow-y: auto;
+}
+
+.document-tree, .document-tree ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.document-tree li {
+    margin-top: 5px;
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.tree-item:hover { background-color: #f0f4f8; }
+.tree-item.active { background-color: #e3f2fd; color: #0d47a1; font-weight: 600; }
+.tree-item i { color: #5585c5; }
+.tree-item.folder i { color: #ffca28; }
+
+/* Estilo do Visualizador de Documento */
+.document-viewer .placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #999;
+    text-align: center;
+}
+.document-viewer .placeholder i {
+    font-size: 50px;
+    margin-bottom: 20px;
+}

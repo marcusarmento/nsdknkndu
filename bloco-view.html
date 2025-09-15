@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Processos do Bloco</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="estatisticas.css">
+    <link rel="stylesheet" href="blocos.css">
+    <link rel="stylesheet" href="bloco-view.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Processos do Bloco 516628</h2>
+                    <p>Descrição: Gestão dos cadastros de usuários</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">Retirar do Bloco</button>
+                    <button class="btn btn-secondary"><i class="fa-solid fa-print"></i> Imprimir</button>
+                    <a href="blocos.html" class="btn btn-secondary">Fechar</a>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-body">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Seq.</th>
+                                <th>Processo</th>
+                                <th>Tipo</th>
+                                <th>Anotações</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>1</td>
+                                <td><a href="processo-view.html">12500.101381/2022-87</a></td>
+                                <td>Acesso à Informação: Requerimento de Informação</td>
+                                <td class="anotacoes-cell"><input type="text" placeholder="Adicionar anotação..."></td>
+                                <td class="actions-cell">
+                                    <button class="action-btn" title="Retirar Processo do Bloco"><i class="fa-solid fa-times"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>2</td>
+                                <td><a href="processo-view.html">13938.103884/2022-48</a></td>
+                                <td>Gestão da Informação: Cadastro de Usuário Externo no SEI</td>
+                                <td class="anotacoes-cell"><input type="text" placeholder="Adicionar anotação..."></td>
+                                <td class="actions-cell">
+                                    <button class="action-btn" title="Retirar Processo do Bloco"><i class="fa-solid fa-times"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="bloco-view.js"></script>
+</body>
+</html>

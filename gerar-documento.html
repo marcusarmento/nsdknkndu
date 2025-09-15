@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Gerar Documento</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css">
+    <link rel="stylesheet" href="gerar-documento.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo-sdi">SDI</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Gerar Documento</h2>
+                    <p>Selecione o tipo de documento para incluir no processo <strong id="processo-numero-display">19957.000052/2014-19</strong></p>
+                </div>
+            </header>
+
+            <section id="escolha-tipo-card" class="module-card">
+                <div class="card-header">
+                    <h3>Escolha o Tipo do Documento</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tipo-documento-grid">
+                        <button class="tipo-documento-item" data-tipo="interno">
+                            <i class="fa-solid fa-file-alt"></i>
+                            <span>Memorando</span>
+                        </button>
+                        <button class="tipo-documento-item" data-tipo="interno">
+                            <i class="fa-solid fa-file-alt"></i>
+                            <span>Ofício</span>
+                        </button>
+                        <button class="tipo-documento-item" data-tipo="externo">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>Documento Externo</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="formulario-documento-card" class="module-card hidden">
+                <div class="card-header">
+                    <h3 id="form-title">Novo Memorando</h3>
+                    <button id="voltar-selecao" class="btn btn-secondary btn-sm">Trocar Tipo</button>
+                </div>
+                <div class="card-body">
+                    <form id="form-gerar-documento">
+                        <div id="campo-anexar-arquivo" class="input-group hidden">
+                            <label for="anexar-arquivo">Anexar Arquivo (PDF)</label>
+                            <input type="file" id="anexar-arquivo" accept=".pdf">
+                        </div>
+
+                        <div id="campo-texto-inicial" class="input-group">
+                            <label>Texto Inicial</label>
+                            <div class="radio-group-container">
+                                <div class="radio-group"><input type="radio" name="texto_inicial"> <label>Documento Modelo</label></div>
+                                <div class="radio-group"><input type="radio" name="texto_inicial"> <label>Texto Padrão</label></div>
+                                <div class="radio-group"><input type="radio" name="texto_inicial" checked> <label>Nenhum</label></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group"><label for="descricao">Descrição</label><input type="text" id="descricao" placeholder="Preenchimento opcional para nomear na árvore"></div>
+                        <div class="input-group"><label for="interessados">Interessados</label><input type="text" id="interessados"></div>
+                        <div class="input-group"><label for="destinatarios">Destinatários</label><input type="text" id="destinatarios"></div>
+                        <div class="input-group"><label for="observacoes">Observações desta unidade</label><textarea id="observacoes" rows="3"></textarea></div>
+                        <div class="input-group">
+                            <label>Nível de Acesso</label>
+                            <div class="access-level-layout">
+                                <div class="access-level-options">
+                                    <div class="radio-group"><input type="radio" id="doc-acesso-publico" name="acesso_doc" value="publico" checked><label for="doc-acesso-publico"><i class="fa-solid fa-globe"></i> Público</label></div>
+                                    <div class="radio-group"><input type="radio" id="doc-acesso-restrito" name="acesso_doc" value="restrito"><label for="doc-acesso-restrito"><i class="fa-solid fa-lock"></i> Restrito</label></div>
+                                    <div class="radio-group"><input type="radio" id="doc-acesso-sigiloso" name="acesso_doc" value="sigiloso"><label for="doc-acesso-sigiloso"><i class="fa-solid fa-user-secret"></i> Sigiloso</label></div>
+                                </div>
+                                <div class="explanation-card">
+                                    <div id="doc-explanation-publico"><h4><i class="fa-solid fa-globe"></i> Acesso Público</h4><p>Qualquer pessoa com o número do processo pode visualizar este documento.</p></div>
+                                    <div id="doc-explanation-restrito" class="hidden"><h4><i class="fa-solid fa-lock"></i> Acesso Restrito</h4><p>Apenas usuários dos setores por onde o processo tramita podem ver o documento.</p></div>
+                                    <div id="doc-explanation-sigiloso" class="hidden"><h4><i class="fa-solid fa-user-secret"></i> Acesso Sigiloso</h4><p>Apenas usuários especificamente autorizados poderão ver este documento.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Voltar ao Processo</button>
+                    <a href="editor.html" class="btn btn-primary">Confirmar Dados</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="gerar-documento.js"></script>
+</body>
+</html>

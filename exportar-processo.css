@@ -1,0 +1,13 @@
+/* Estilos para a tabela de exportação */
+
+.export-table th:nth-child(1), .export-table td:nth-child(1) {
+    width: 5%; /* Largura da coluna do checkbox */
+}
+
+.export-table th:nth-child(2), .export-table td:nth-child(2) {
+    width: 15%; /* Largura da coluna Nº SEI */
+}
+
+.export-table th:nth-child(4), .export-table td:nth-child(4) {
+    width: 20%; /* Largura da coluna Data */
+}

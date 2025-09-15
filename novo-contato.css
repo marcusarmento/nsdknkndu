@@ -1,0 +1,35 @@
+/* Estilos para a página de Novo Contato */
+
+.contact-form-grid {
+    display: grid;
+    /* Cria 3 colunas de larguras iguais */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 30px;
+}
+
+.form-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+}
+
+/* Garante que o rodapé com os botões fique alinhado ao card */
+#form-novo-contato .modal-footer {
+    border-top: 1px solid #eee;
+    padding: 20px;
+    margin: 20px -25px -25px -25px; /* Compensa o padding do card-body */
+    border-radius: 0 0 12px 12px;
+}
+
+/* Responsividade para o formulário */
+@media (max-width: 992px) {
+    .contact-form-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form-grid {
+        grid-template-columns: 1fr; /* 1 coluna em celulares */
+    }
+}

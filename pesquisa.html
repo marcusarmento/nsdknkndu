@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDI - Pesquisa</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="iniciar-processo.css"> <link rel="stylesheet" href="pesquisa.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo-sdi">SDI</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-inbox"></i><span>Controle de Processos</span></a>
+                <a href="iniciar-processo.html" class="nav-item"><i class="fa-solid fa-plus"></i><span>Iniciar Processo</span></a>
+                <a href="retorno-programado.html" class="nav-item"><i class="fa-solid fa-repeat"></i><span>Retorno Programado</span></a>
+                <a href="pesquisa.html" class="nav-item active"><i class="fa-solid fa-search"></i><span>Pesquisa</span></a>
+                <a href="base-conhecimento.html" class="nav-item"><i class="fa-solid fa-book"></i><span>Base de Conhecimento</span></a>
+                <a href="textos-padrao.html" class="nav-item"><i class="fa-solid fa-quote-left"></i><span>Textos Padrão</span></a>
+                <a href="modelos.html" class="nav-item"><i class="fa-solid fa-paste"></i><span>Modelos</span></a>
+                <a href="acompanhamento.html" class="nav-item"><i class="fa-solid fa-star"></i><span>Acompanhamento Especial</span></a>
+                <a href="blocos.html" class="nav-item"><i class="fa-solid fa-file-signature"></i><span>Blocos de Assinatura</span></a>
+                <a href="estatisticas.html" class="nav-item"><i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="main-header">
+                <div class="page-title">
+                    <h2>Pesquisa</h2>
+                    <p>Encontre processos ou documentos no sistema.</p>
+                </div>
+            </header>
+
+            <section class="module-card">
+                <div class="card-header">
+                    <h3>Filtros de Pesquisa</h3>
+                </div>
+                <div class="card-body">
+                    <form id="form-pesquisa" class="search-form-grid">
+                        
+                        <div class="input-group">
+                            <label for="search-term">Termo de Pesquisa</label>
+                            <input type="text" id="search-term" placeholder="Digite uma palavra, número ou expressão...">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="search-interessado">Interessado / Remetente</label>
+                            <input type="text" id="search-interessado" placeholder="Nome ou CPF/CNPJ...">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="search-tipo-processo">Tipo do Processo</label>
+                            <select id="search-tipo-processo">
+                                <option value="">Todos</option>
+                                <option value="ferias">Pessoal: Férias</option>
+                                <option value="abono">Pessoal: Abono</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="search-unidade">Unidade</label>
+                            <input type="text" id="search-unidade" placeholder="Sigla da unidade geradora...">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="search-numero-sei">Nº SEI</label>
+                            <input type="text" id="search-numero-sei" placeholder="Número do Processo/Documento...">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="search-tipo-documento">Tipo do Documento</label>
+                            <select id="search-tipo-documento">
+                                <option value="">Todos</option>
+                                <option value="memorando">Memorando</option>
+                                <option value="oficio">Ofício</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group date-filter-group">
+                            <label>Data do Documento</label>
+                            <div class="radio-group-container">
+                                <div class="radio-group"><input type="radio" id="date-any" name="date_filter" value="any" checked><label for="date-any">Qualquer data</label></div>
+                                <div class="radio-group"><input type="radio" id="date-30" name="date_filter" value="30"><label for="date-30">Últimos 30 dias</label></div>
+                                <div class="radio-group"><input type="radio" id="date-60" name="date_filter" value="60"><label for="date-60">Últimos 60 dias</label></div>
+                                <div class="radio-group"><input type="radio" id="date-explicit" name="date_filter" value="explicit"><label for="date-explicit">Período específico</label></div>
+                            </div>
+                            <div id="date-explicit-fields" class="date-range-fields hidden">
+                                <input type="date" id="date-start">
+                                <span>até</span>
+                                <input type="date" id="date-end">
+                            </div>
+                        </div>
+
+                        <div class="search-button-container">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-search"></i> Pesquisar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="module-card">
+                <div class="card-header">
+                    <h3>Resultados</h3>
+                </div>
+                <div class="card-body">
+                    <div id="search-results-container">
+                        <div id="results-placeholder" class="placeholder">
+                            <i class="fa-solid fa-search-plus"></i>
+                            <h3>Utilize os filtros acima para iniciar uma busca</h3>
+                            <p>Os resultados serão exibidos aqui.</p>
+                        </div>
+                        
+                        <div id="results-list" class="hidden">
+                            <div class="results-summary">
+                                <span>Exibindo 3 de 3 resultados</span>
+                            </div>
+                            <ul class="results-ul">
+                                <li class="result-item">
+                                    <i class="fa-solid fa-file-alt result-icon"></i>
+                                    <div class="result-content">
+                                        <a href="#" class="result-title">Demanda Externa: Senador Nº 53500.004928/2017-45</a>
+                                        <p class="result-snippet">...nos moldes do art. 4º do Decreto nº 5.450/2005 <span class="highlight">037.606.104-98</span> Este documento entra em vigor na...</p>
+                                        <div class="result-meta">
+                                            <span><strong>Unidade:</strong> SGI</span>
+                                            <span><strong>Usuário:</strong> neijobson</span>
+                                            <span><strong>Data:</strong> 01/02/2017</span>
+                                        </div>
+                                    </div>
+                                    <span class="result-doc-number">0055285</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+    </div>
+
+    <script src="pesquisa.js"></script>
+</body>
+</html>
