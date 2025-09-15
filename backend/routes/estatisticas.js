@@ -2,9 +2,10 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const logger = require('../logger');
 
 // GET /api/estatisticas/processos-por-tipo - Estatísticas de processos por tipo
-router.get('/processos-por-tipo', async (req, res) => {
+router.get('/processos-por-tipo', async (req, res, next) => {
     try {
         const { rows } = await db.query(`
             SELECT tipo_processo, COUNT(*) as quantidade
@@ -15,16 +16,17 @@ router.get('/processos-por-tipo', async (req, res) => {
         `);
         res.json(rows);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
+        next(err);
     }
 });
 
 // GET /api/estatisticas/tempo-medio - Tempo médio de tramitação
-router.get('/tempo-medio', async (req, res) => {
+router.get('/tempo-medio', async (req, res, next) => {
     try {
         const { rows } = await db.query(`
-            SELECT 
+            SELECT
                 DATE_TRUNC('month', criado_em) as mes,
                 AVG(EXTRACT(DAYS FROM (COALESCE(atualizado_em, NOW()) - criado_em))) as tempo_medio_dias
             FROM processos
@@ -34,9 +36,11 @@ router.get('/tempo-medio', async (req, res) => {
         `);
         res.json(rows);
     } catch (err) {
-        console.error(err.message);
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
+        next(err);
     }
 });
 
 module.exports = router;
+

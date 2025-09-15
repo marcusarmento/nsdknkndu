@@ -25,7 +25,17 @@ git clone <url-do-repositorio>
 cd sdi-sistema
 ```
 
-### 2. Instale o PostgreSQL
+### 2. Instale as dependências
+```bash
+cd backend
+npm install
+
+cd ../frontend
+npm install
+cd ..
+```
+
+### 3. Instale o PostgreSQL
 
 #### Windows:
 ```bash
@@ -47,7 +57,7 @@ sudo apt install postgresql postgresql-contrib
 brew install postgresql
 ```
 
-### 3. Configure o banco de dados
+### 4. Configure o banco de dados
 
 ```bash
 # Conecte ao PostgreSQL como superusuário
@@ -65,7 +75,11 @@ GRANT ALL PRIVILEGES ON DATABASE sdi_db TO postgres;
 ```bash
 cd backend
 npm install
+cp .env.example .env
+# Preencha o arquivo .env com os valores reais
 ```
+
+Em seguida, edite o arquivo `.env` preenchendo as credenciais e configurações do seu ambiente.
 
 ### 5. Execute o script de criação do banco
 
@@ -99,11 +113,16 @@ sdi-sistema/
 │   ├── database.sql       # Script de criação do banco
 │   ├── package.json       # Dependências do Node.js
 │   └── node_modules/      # Dependências instaladas
-├── *.html                 # Páginas do frontend
-├── *.js                   # Scripts JavaScript do frontend
-├── *.css                  # Estilos CSS
+├── frontend/
+│   └── src/
+│       ├── styles/        # Estilos CSS da aplicação
+│       └── ...            # Demais arquivos React
+├── *.html                 # Páginas do frontend legado
+├── *.js                   # Scripts JavaScript do frontend legado
 └── README.md             # Este arquivo
 ```
+
+Os estilos CSS da aplicação agora residem em `frontend/src/styles/`.
 
 ## 🔧 APIs Disponíveis
 
@@ -168,6 +187,22 @@ npm run db:create
 npm run db:setup
 ```
 
+## 🧪 Testes
+
+### Backend
+
+```bash
+cd backend
+npm test
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm test
+```
+
 ## 🐛 Solução de Problemas
 
 ### Erro de conexão com PostgreSQL
@@ -202,7 +237,7 @@ npm run db:setup
 
 ## 📄 Licença
 
-Este projeto está sob a licença ISC. Veja o arquivo `LICENSE` para mais detalhes.
+Este projeto está sob a licença ISC. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📞 Suporte
 
