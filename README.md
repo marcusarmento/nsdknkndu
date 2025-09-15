@@ -201,12 +201,16 @@ npm run db:setup
 
 ### Backend
 
+Os testes do backend são escritos com **Jest** e **Supertest**.
+
 ```bash
 cd backend
 npm test
 ```
 
 ### Frontend
+
+Os testes do frontend utilizam **Vitest** e **@testing-library/react**.
 
 ```bash
 cd frontend
