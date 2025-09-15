@@ -25,7 +25,17 @@ git clone <url-do-repositorio>
 cd sdi-sistema
 ```
 
-### 2. Instale o PostgreSQL
+### 2. Instale as dependências
+```bash
+cd backend
+npm install
+
+cd ../frontend
+npm install
+cd ..
+```
+
+### 3. Instale o PostgreSQL
 
 #### Windows:
 ```bash
@@ -47,7 +57,7 @@ sudo apt install postgresql postgresql-contrib
 brew install postgresql
 ```
 
-### 3. Configure o banco de dados
+### 4. Configure o banco de dados
 
 ```bash
 # Conecte ao PostgreSQL como superusuário
@@ -58,13 +68,6 @@ CREATE DATABASE sdi_db;
 CREATE USER postgres WITH PASSWORD 'ASUHFfDFJDF';
 GRANT ALL PRIVILEGES ON DATABASE sdi_db TO postgres;
 \q
-```
-
-### 4. Configure o backend
-
-```bash
-cd backend
-npm install
 ```
 
 ### 5. Execute o script de criação do banco
