@@ -34,6 +34,10 @@ app.get('/', (req, res) => {
 });
 
 // 7. Iniciar o servidor
-app.listen(PORT, () => {
-    console.log(`Servidor rodando com sucesso na porta ${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando com sucesso na porta ${PORT}`);
+    });
+}
+
+module.exports = app;
