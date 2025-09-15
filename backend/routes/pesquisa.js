@@ -5,10 +5,10 @@ const db = require('../db');
 const logger = require('../logger');
 
 // GET /api/pesquisa - Pesquisar processos
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try {
         const { q, tipo, data_inicio, data_fim } = req.query;
-        
+
         let query = 'SELECT * FROM processos WHERE 1=1';
         const values = [];
         let paramCount = 0;
@@ -44,6 +44,7 @@ router.get('/', async (req, res) => {
     } catch (err) {
         logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
+        next(err);
     }
 });
 
