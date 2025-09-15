@@ -34,6 +34,24 @@ app.get('/', (req, res) => {
 });
 
 // 7. Iniciar o servidor
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando com sucesso na porta ${PORT}`);
+    });
+}
+
+module.exports = app;
+
+// 7. Middleware para rota não encontrada
+app.use((req, res) => res.status(404).json({ error: 'Rota não encontrada' }));
+
+// 8. Middleware de tratamento de erros
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({ error: 'Erro interno' });
+});
+
+// 9. Iniciar o servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando com sucesso na porta ${PORT}`);
 });
