@@ -202,7 +202,7 @@ npm run db:setup
 
 ## 📄 Licença
 
-Este projeto está sob a licença ISC. Veja o arquivo `LICENSE` para mais detalhes.
+Este projeto está sob a licença ISC. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📞 Suporte
 
