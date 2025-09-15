@@ -5,11 +5,24 @@ const db = require('../db');
 const logger = require('../logger');
 const { body, validationResult } = require('express-validator');
 
+// GET /api/processos - Buscar todos os processos com paginação
+router.get('/', async (req, res) => {
+
 // GET /api/processos - Buscar todos os processos
 router.get('/', async (req, res, next) => {
     try {
-        const { rows } = await db.query('SELECT * FROM processos ORDER BY criado_em DESC');
-        res.json(rows);
+        const limit = parseInt(req.query.limit, 10) || 10;
+        const offset = parseInt(req.query.offset, 10) || 0;
+
+        const totalResult = await db.query('SELECT COUNT(*) FROM processos');
+        const total = parseInt(totalResult.rows[0].count, 10);
+
+        const { rows } = await db.query(
+            'SELECT * FROM processos ORDER BY criado_em DESC LIMIT $1 OFFSET $2',
+            [limit, offset]
+        );
+
+        res.json({ data: rows, total, limit, offset });
     } catch (err) {
         logger.error(err.message);
         res.status(500).json({ error: 'Erro no servidor' });
