@@ -2,6 +2,8 @@
 
 Sistema web para gestão de processos e documentos internos, desenvolvido com Node.js, Express, PostgreSQL e frontend vanilla JavaScript.
 
+Após clonar o repositório, execute `npm install` para instalar as dependências.
+
 ## 🚀 Funcionalidades
 
 - **Gestão de Processos**: Criação, visualização, edição e exclusão de processos
@@ -104,6 +106,16 @@ O servidor estará rodando em `http://localhost:3000`
 
 Abra o arquivo `dashboard.html` em seu navegador ou configure um servidor web local para servir os arquivos HTML.
 
+## Variáveis de ambiente do frontend
+
+O frontend React usa Vite, que expõe apenas variáveis prefixadas com `VITE_` ao código do navegador. Defina-as no arquivo `frontend/.env`.
+
+```env
+VITE_API_BASE_URL=/api
+```
+
+No código, acesse com `import.meta.env.VITE_API_BASE_URL`.
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -191,12 +203,16 @@ npm run db:setup
 
 ### Backend
 
+Os testes do backend são escritos com **Jest** e **Supertest**.
+
 ```bash
 cd backend
 npm test
 ```
 
 ### Frontend
+
+Os testes do frontend utilizam **Vitest** e **@testing-library/react**.
 
 ```bash
 cd frontend

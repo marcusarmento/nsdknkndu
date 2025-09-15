@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Carregar contatos ao inicializar a página
+    let limit = 10;
+    let offset = 0;
+    let total = 0;
+
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    const infoSpan = document.getElementById('pagination-info');
+
     carregarContatos();
 
-    // Função para carregar contatos da API
     async function carregarContatos() {
         try {
-            const response = await fetch('http://localhost:3000/api/contatos');
-            
+            const response = await fetch(`http://localhost:3000/api/contatos?limit=${limit}&offset=${offset}`);
+
             if (!response.ok) {
                 let errorMessage = 'Erro ao carregar contatos';
                 try {
@@ -18,17 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 throw new Error(errorMessage);
             }
-            
-            const contatos = await response.json();
-            exibirContatos(contatos);
-            
+
+            const resultado = await response.json();
+            total = resultado.total;
+            limit = resultado.limit;
+            offset = resultado.offset;
+
+            exibirContatos(resultado.data);
+            atualizarControlesPaginacao();
         } catch (error) {
             console.error('Erro ao carregar contatos:', error);
             exibirErro('Erro ao carregar contatos');
         }
     }
 
-    // Função para exibir contatos na tabela
     function exibirContatos(contatos) {
         const tabelaBody = document.getElementById('tabela-contatos-body');
         if (!tabelaBody) return;
@@ -53,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Função para exibir erro
     function exibirErro(mensagem) {
         const tabelaBody = document.getElementById('tabela-contatos-body');
         if (tabelaBody) {
@@ -61,13 +68,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Função para filtrar contatos
+    function atualizarControlesPaginacao() {
+        if (infoSpan) {
+            const inicio = total === 0 ? 0 : offset + 1;
+            const fim = Math.min(offset + limit, total);
+            infoSpan.textContent = `${inicio}-${fim} de ${total}`;
+        }
+        if (prevBtn) prevBtn.disabled = offset === 0;
+        if (nextBtn) nextBtn.disabled = offset + limit >= total;
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            offset = Math.max(offset - limit, 0);
+            carregarContatos();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            if (offset + limit < total) {
+                offset += limit;
+                carregarContatos();
+            }
+        });
+    }
+
     const filtroInput = document.getElementById('filtro-contatos');
     if (filtroInput) {
         filtroInput.addEventListener('input', function() {
             const termo = this.value.toLowerCase();
             const linhas = document.querySelectorAll('#tabela-contatos-body tr');
-            
+
             linhas.forEach(linha => {
                 const texto = linha.textContent.toLowerCase();
                 linha.style.display = texto.includes(termo) ? '' : 'none';
@@ -75,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Funções globais para ações
     window.editarContato = function(id) {
         window.location.href = `novo-contato.html?id=${id}`;
     };
@@ -92,13 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 alert('Contato excluído com sucesso!');
-                carregarContatos(); // Recarrega a lista
-                
+                carregarContatos();
             } catch (error) {
                 console.error('Erro ao excluir contato:', error);
                 alert('Erro ao excluir contato: ' + error.message);
             }
         }
     };
-
 });
+

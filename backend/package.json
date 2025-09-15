@@ -14,12 +14,19 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "express-validator": "^6.14.3",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3",
     "winston": "^3.10.0",
     "jsonwebtoken": "^9.0.2",
+    "winston": "^3.10.0"
+    "winston": "^3.10.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcrypt": "^5.1.1",
     "express-validator": "^6.14.3"
   },
   "devDependencies": {
@@ -28,3 +35,4 @@
     "supertest": "^6.3.4"
   }
 }
+

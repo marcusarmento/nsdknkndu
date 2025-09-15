@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../db');
+const logger = require('../logger');
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'default_secret';
@@ -19,7 +20,7 @@ router.post('/register', async (req, res) => {
     const token = jwt.sign({ id: user.id, cpf: user.cpf }, JWT_SECRET, { expiresIn: TOKEN_EXPIRATION });
     res.status(201).json({ user, token });
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     res.status(500).json({ error: 'Erro ao registrar usuário' });
   }
 });
@@ -40,7 +41,7 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({ id: user.id, cpf: user.cpf }, JWT_SECRET, { expiresIn: TOKEN_EXPIRATION });
     res.json({ user: { id: user.id, cpf: user.cpf, nome: user.nome, email: user.email }, token });
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     res.status(500).json({ error: 'Erro ao fazer login' });
   }
 });
