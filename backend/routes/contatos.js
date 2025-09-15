@@ -1,13 +1,9 @@
-
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
 const logger = require('../logger');
 
 // GET /api/contatos - Buscar todos os contatos com paginação
-router.get('/', async (req, res) => {
-
-// GET /api/contatos - Buscar todos os contatos
 router.get('/', async (req, res, next) => {
     try {
         const limit = parseInt(req.query.limit, 10) || 10;
@@ -74,7 +70,10 @@ router.post('/', async (req, res, next) => {
         const { rows } = await db.query(query, values);
         res.status(201).json(rows[0]);
     } catch (err) {
+        logger.error(err.message);
         res.status(500).json({ error: 'Erro ao criar contato' });
+        next(err);
+    }
 });
 
 // PUT /api/contatos/:id - Atualizar contato
