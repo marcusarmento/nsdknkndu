@@ -1,12 +1,53 @@
-# React + Vite
+# Frontend SDI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação React com Vite que compõe a interface do Sistema de Documentos Integrado (SDI).
 
-Currently, two official plugins are available:
+## Páginas
+- **Dashboard** – painel inicial com processos recebidos e gerados.
+- **Blocos** – gerenciamento de blocos de processos (listagem, criação e exclusão).
+- **Estatísticas** – gráficos e indicadores de processos.
+- **Pesquisa** – busca de processos cadastrados.
+- **IniciarProcesso** – formulário para iniciar novo processo.
+- **NovoBloco** – criação de blocos para organização interna.
+- **ProcessoView** – visualização e ações sobre um processo.
+- **StaticPage** – página estática de exemplo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependências principais
+- [react](https://react.dev/)
+- [react-dom](https://react.dev/)
+- [react-router-dom](https://reactrouter.com/)
+- [chart.js](https://www.chartjs.org/) e [react-chartjs-2](https://react-chartjs-2.js.org/)
+- Vite e plugins de lint (`eslint`, `@vitejs/plugin-react`)
 
-## Expanding the ESLint configuration
+## Scripts
+| Comando              | Descrição                                           |
+|----------------------|-----------------------------------------------------|
+| `npm install`        | instala dependências                                |
+| `npm run dev`        | inicia servidor de desenvolvimento                  |
+| `npm run build`      | gera build de produção                              |
+| `npm run preview`    | pré-visualiza build gerado                          |
+| `npm run lint`       | executa verificações de lint com ESLint             |
+| `npm test`           | (sem testes configurados no momento)                |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Integração com o backend
+O backend Node/Express encontra-se em [../backend](../backend).
+
+1. `cd backend && npm install`
+2. `npm run dev` para iniciar o servidor (porta padrão **3000**)
+3. No frontend, execute `npm run dev` – as requisições a `/api` serão proxyadas para `http://localhost:3000`.
+
+## Variáveis de ambiente `VITE_*`
+Vite expõe somente variáveis prefixadas com `VITE_` para o código do navegador.
+
+Exemplo de configuração por ambiente:
+
+- `.env.development`
+  ```env
+  VITE_API_URL=http://localhost:3000
+  ```
+- `.env.production`
+  ```env
+  VITE_API_URL=https://api.exemplo.com
+  ```
+
+No código, acesse-as com `import.meta.env.VITE_API_URL` e use para definir a URL base das requisições (ex.: em `src/api.js`).
